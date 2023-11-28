@@ -35,8 +35,6 @@ function createTable(resData){
 
     tdButton.append(buttonEdit)
     tr.append(tdName, tdBreed, tdSex, tdButton)
-    // console.log(tr)
-    // console.log(tableBody)
     tableBody.append(tr)
 
     buttonEdit.addEventListener('click', () => {editDog(dog)})
@@ -71,7 +69,6 @@ function initEditForm(){
     })
   })
 }
-
 
 function getElement(el){
   return document.querySelector(el)
