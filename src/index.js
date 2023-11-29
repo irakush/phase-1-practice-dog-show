@@ -5,15 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const url = 'http://localhost:3000/dogs'
 let currentDog = {}
 
-function getDogs() {
-  fetch(url)
-  .then(res => res.json())
-  .then(resData => {
-    createTable(resData)
-    initEditForm()
-  })
-}
-
 function createTable(resData){
 
   getElement('#table-body').innerHTML = ""
@@ -45,9 +36,10 @@ function editDog(dog){
 
   currentDog = dog
   // initEditForm()
-  const inputName = document.getElementsByName('name')[0] //getElement('input[name="name"]') 
-  const inputBreed = document.getElementsByName('breed')[0]
-  const inputSex = document.getElementsByName('sex')[0]
+  // document.getElementsByName('breed')
+  const inputName = getElement('input[name="name"]')
+  const inputBreed = getElement('input[name="breed"]')
+  const inputSex = getElement('input[name="sex"]')
 
   inputName.value = dog.name
   inputBreed.value = dog.breed
@@ -60,12 +52,17 @@ function initEditForm(){
   editForm.addEventListener('submit', (e) =>{
     e.preventDefault()
 
-    const updateData = {name: e.target[0].value, breed: e.target[1].value, sex: e.target[2].value}
+    // {name: e.target[0].value, breed: e.target[1].value, sex: e.target[2].value}
+    const updateData = {
+      name: e.target.name.value, 
+      breed: e.target.breed.value, 
+      sex: e.target.sex.value
+    }
 
-    fetchUpdate(currentDog.id, updateData)
+    patchDog(currentDog.id, updateData)
     .then(resDog => {
-      console.log(resDog)
       getDogs()
+      editForm.reset()
     })
   })
 }
@@ -78,7 +75,16 @@ function createElement(el){
   return document.createElement(el)
 }
 
-function fetchUpdate(id, updateData){
+function getDogs() {
+  fetch(url)
+  .then(res => res.json())
+  .then(resData => {
+    createTable(resData)
+    initEditForm()
+  })
+}
+
+function patchDog(id, updateData){
   return fetch(url + `/${id}`, {
     method: "PATCH",
     headers: {

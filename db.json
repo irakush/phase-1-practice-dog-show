@@ -2,21 +2,21 @@
   "dogs": [
     {
       "id": 1,
-      "name": "Baby2233",
-      "breed": "Scottish Deerhound323",
-      "sex": "male232"
+      "name": "Baby",
+      "breed": "Scottish Deerhound",
+      "sex": "male"
     },
     {
       "id": 2,
-      "name": "Teddyasdadew",
+      "name": "Teddy",
       "breed": "Rhodesian Ridgeback",
-      "sex": "femaleadawda"
+      "sex": "female"
     },
     {
       "id": 3,
-      "name": "Snickers1212112",
-      "breed": "Dachshund1212",
-      "sex": "female1212"
+      "name": "Snickers",
+      "breed": "Dachshund",
+      "sex": "female"
     },
     {
       "id": 4,
@@ -26,9 +26,9 @@
     },
     {
       "id": 5,
-      "name": "Teddyasdadew",
+      "name": "Bobby",
       "breed": "Rhodesian Ridgeback",
-      "sex": "femaleadawda"
+      "sex": "male"
     },
     {
       "id": 6,
@@ -68,9 +68,9 @@
     },
     {
       "id": 12,
-      "name": "Misty gggg",
+      "name": "Misty",
       "breed": "Patterdale Terrier",
-      "sex": "female hhh"
+      "sex": "female"
     },
     {
       "id": 13,
